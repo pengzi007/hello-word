@@ -1,3 +1,4 @@
+(https://blog.csdn.net/weixin_39089928/article/details/87008838)
 1. 本地目录下建个空的git仓库，git init, git remote add origin git@github.com:wu-yuan/kunqing.git；
 2. 把github上个人仓库的文件拉到本地，git pull --rebase origin master；
 （以上两个命令完成了本地新建仓库跟github上个人远端仓库的关联）；
