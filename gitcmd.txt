@@ -1,0 +1,12 @@
+1. 本地目录下建个空的git仓库，git init, git remote add origin git@github.com:wu-yuan/kunqing.git；
+2. 把github上个人仓库的文件拉到本地，git pull --rebase origin master；
+（以上两个命令完成了本地新建仓库跟github上个人远端仓库的关联）；
+3. 补充命令1，
+	1）查看git对应的远程仓库地址，git remote -v
+	2）删除关联对应的远程仓库地址，git remote rm origin
+4. 如果要新添加文件需要执行下面的命令，
+	1）将项目的文件添加到仓库中，git add .
+	2) 讲add的文件commit到仓库， git commit -m "commit message"
+	3) 代码合并（必须要执行，否则报错，该命令的作用是多次执行2）后将暂存区的HEAD指向最新的代码），git pull --rebase origin master
+	4) 代码上传到远程仓库， git push -u origin master（第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的		 远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令），从现在开始， 	       只要本地做了提交，就可以通过命令，git push origin master。
+
