@@ -15,3 +15,7 @@
 7. 撤销文件，
         1）工作区丢弃修改，git checkout -- file;
         2）把暂存区的修改撤销掉，git reset HEAD <file>;
+8. 删除文件,工作区的文件被删除后，有两种动作会被执行，
+	1）删除暂存区相同的文件，git rm test.txt 删掉版本库的文件，并且git commit -m "remove test.txt"；
+	2）删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本，git checkout -- test.txt
+       （git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”）
