@@ -1,7 +1,6 @@
 (https://blog.csdn.net/weixin_39089928/article/details/87008838)
 1. 本地目录下建个空的git仓库，git init, git remote add origin git@github.com:wu-yuan/kunqing.git；
 2. 把github上个人仓库的文件拉到本地，git pull --rebase origin master；
-（以上两个命令完成了本地新建仓库跟github上个人远端仓库的关联）；
 3. 补充命令1，
 	1）查看git对应的远程仓库地址，git remote -v
 	2）删除关联对应的远程仓库地址，git remote rm origin
@@ -9,9 +8,11 @@
 	1）将项目的文件添加到仓库中，git add .
 	2) 讲add的文件commit到仓库， git commit -m "commit message"
 	3) 代码合并（必须要执行，否则报错，该命令的作用是多次执行2）后将暂存区的HEAD指向最新的代码），git pull --rebase origin master
-	4) 代码上传到远程仓库， git push -u origin master（第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的		 远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令），从现在开始， 	       只要本地做了提交，就可以通过命令，git push origin master。
-5. 版本回退，首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100，git reset --hard HEAD^
-6. 回到未来的某个版本, git reset --hard 版本号；5. 版本回退，首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100，git reset --hard HEAD^;
+	4) 代码上传到远程仓库， git push -u origin master（第一次推送master分支时，加上了-u参数，Git不但会把            本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在	     以后的推送或者拉取时就可以简化命令），从现在开始，只要本地做了提交，就可以通过命令，
+	   git push origin master。
+5. 版本回退，
+	首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交1094adb...（注意我	     的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比	  较容易数不过来，所以写成HEAD~100，git reset --hard HEAD^
+6. 回到未来的某个版本, git reset --hard 版本号；
 7. 撤销文件，
         1）工作区丢弃修改，git checkout -- file;
         2）把暂存区的修改撤销掉，git reset HEAD <file>;
@@ -19,3 +20,10 @@
 	1）删除暂存区相同的文件，git rm test.txt 删掉版本库的文件，并且git commit -m "remove test.txt"；
 	2）删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本，git checkout -- test.txt
        （git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”）
+9. 创建、合并&删除分支，
+	1）git checkout -b testbranchxx, git branch testbranchxx, git checkout testbranchxx;
+	2) 合并testbranchxx分支代码到当前分支，git merge testbranchxx；
+	3) 合并testbranchxx分支代码到当前分支并禁用-no-ff（fast forward），git merge --no-ff -m "merge with no		-ff" testbrachxx
+	4）git branch -d testbranchxx;
+	5) Nice，git log --praph --pretty=oneline --abbrev-commit;
+	6) 分支策略，首先master分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一		般情况下在新建的testbranch分支上干活，干完后，比如要发布，或者说testbranch分支代码稳定后可以合并到 	       主干分支master上来。
