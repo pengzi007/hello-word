@@ -31,4 +31,5 @@
 	git stash、git stash pop=(git stash apply + git stash drop)
 11. 显示所有提交过的用户，按提交次数排序，git shortlog -sn
 12. 显示指定文件是什么人在什么时间修改过，git blame [file] ;
-13. 
+13. ****Git 使用规范流程，http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
+	1）与主干同步，分支开发的过程中，要经常与主干同步，git fecth origin + git rebase origin/master;
