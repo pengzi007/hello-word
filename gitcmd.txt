@@ -29,3 +29,6 @@
 	6) 分支策略，首先master分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一		般情况下在新建的testbranch分支上干活，干完后，比如要发布，或者说testbranch分支代码稳定后可以合并到 	       主干分支master上来。
 10. bug分支，场景：当前分支还在工作，有代码没有commit，又有新的issue需要紧急定位，此时需要git stash 命令将当前的工作现场隐藏起来再去修改新的issue。
 	git stash、git stash pop=(git stash apply + git stash drop)
+11. 显示所有提交过的用户，按提交次数排序，git shortlog -sn
+12. 显示指定文件是什么人在什么时间修改过，git blame [file] ;
+13. 
