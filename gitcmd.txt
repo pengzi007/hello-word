@@ -34,3 +34,5 @@
 13. ****Git 使用规范流程，http://www.ruanyifeng.com/blog/2015/08/git-use-process.html
 	1）与主干同步，分支开发的过程中，要经常与主干同步，git fecth origin + git rebase origin/master;
 14. Git 工作流程，http://www.ruanyifeng.com/blog/2015/12/git-workflow.html
+15. 保存当前分支工作目录的修改，git stash;
+16. 在master分支上修复的bug，想要合并到当前dev分支，git cherry-pick <commit>;
